@@ -15,7 +15,7 @@ body {
   flex-direction: column;
   width: 95vw;
   max-width: 500px;
-  margin: auto;
+  margin: 100px auto;
 }
 
 input {
