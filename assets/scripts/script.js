@@ -26,7 +26,8 @@ shakeHandBtn.addEventListener('click', ()=> {
   let binVal = convertToBinary(inputNumber.value)
   console.log(binVal)
   for (let i=0; i<arrayOfCode.length; i++) {
-    if(binVal == arrayOfCode[i].bin) //calling the fxn to convert to binary
-    displayResults.innerHTML = arrayOfCode[i].response
+    if(binVal == arrayOfCode[i].bin){ //calling the fxn to convert to binary
+      displayResults.innerHTML = arrayOfCode[i].response
+    }
   }
 })
