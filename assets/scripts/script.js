@@ -47,7 +47,7 @@ const findResponse = (val, arr) => {
 
 const checkRange = (valu, arre) => {
   let va2 = 0
-  if ((valu <= 4)||(valu === 8)) {
+  if ((valu <= 4)||(valu == 8)) {
     findResponse(valu, arre)
   }
   else if((valu > 4)&&(valu < 8)) {
@@ -58,10 +58,18 @@ const checkRange = (valu, arre) => {
  
   }
   else if((valu > 8)&&(valu < 16)) {
-    findResponse(valu-8, arre)
-    k++
-    findResponse(8, arre)
-    console.log(reversedArray)
+    if(valu < 13) {
+      findResponse(valu-8, arre)
+      k++
+      findResponse(8, arre)
+      console.log(reversedArray)
+    }else {
+      findResponse(valu-12, arre)
+      k++
+      findResponse((valu-(valu-12))-8, arre)
+      k++
+      findResponse(8, arre)
+    }
   }
 
   k = 0
@@ -72,7 +80,6 @@ shakeHandBtn.addEventListener('click', ()=> {
   let resultant = 0
   if (inputNumber.value < 16) {
     checkRange(inputNumber.value, arrayOfCode)
-    // console.log(arrayOfCode)
   }
   else if (inputNumber.value >= 16) {
     // checkRange((inputNumber.value-16), reversedArray)
