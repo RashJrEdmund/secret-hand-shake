@@ -47,41 +47,35 @@ const findResponse = (val, arr) => {
 const checkRange = (valu, arre) => {
   if ((valu <= 4) || (valu === 8)) {
     findResponse(valu, arre)
-  }
-  else if ((valu > 4) && (valu < 8)) {
+  } else if ((valu > 4) && (valu < 8)) {
     if (revert === false) {
       findResponse(valu - 4, arre)
       k++
       findResponse(4, arre)
-    }
-    else {
+    } else {
       findResponse(4, arre)
       k++
       findResponse(valu - 4, arre)
     }
-  }
-  else if ((valu > 8) && (valu < 16)) {
+  } else if ((valu > 8) && (valu < 16)) {
     if (valu < 13) {
       if (revert === false) {
         findResponse(valu - 8, arre)
         k++
         findResponse(8, arre)
-      }
-      else {
+      } else {
         findResponse(8, arre)
         k++
         findResponse(valu - 8, arre)
       }
-    }
-    else {
+    } else {
       if (revert === false) {
         findResponse(valu - 12, arre)
         k++
         findResponse((valu - (valu - 12)) - 8, arre)
         k++
         findResponse(8, arre)
-      }
-      else {
+      } else {
         findResponse(8, arre)
         k++
         findResponse((valu - (valu - 12)) - 8, arre)
@@ -97,8 +91,7 @@ shakeHandBtn.addEventListener('click', () => {
   displayResults.innerHTML = ''
   if (inputNumber.value < 16) {
     checkRange(inputNumber.value, arrayOfCode)
-  }
-  else if (inputNumber.value >= 16) {
+  } else if (inputNumber.value >= 16) {
     if (inputNumber.value === 16) {
       displayResults.innerHTML += '! secret Code reversed'
     } else {
