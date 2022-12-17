@@ -99,7 +99,7 @@ shakeHandBtn.addEventListener('click', ()=> {
   }
   else if (inputNumber.value >= 16) {
     if(inputNumber.value === 16) {
-      displayResults.innerHTML += `! secret Code reversed and ${Math.ceil(inputNumber.value/16)*16}`
+      displayResults.innerHTML += `! secret Code reversed`
     } else {
       revert = true
       checkRange((inputNumber.value-16), reversedArray)
