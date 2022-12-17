@@ -9,8 +9,9 @@ const arrayOfCode = [
   {bin: 100, response: 'close your eyes', deci: 4},
   {bin: 1000, response: 'jump', deci: 8},
 ]
+
 const reversedArray = [
-  {bin: 1000, response: 'jump', deci: 8},
+  {bin:1000, response: 'jump', deci: 8},
   {bin: 100, response: 'close your eyes', deci: 4},
   {bin: 11, response: 'double blink, wink', deci: 3},
   {bin: 10, response: 'double blink', deci: 2},
@@ -22,42 +23,36 @@ let revert = false
 
 const convertToBinary = (val) => {
   let remainder = 0, binary = 0, i=1;
-  while(val!=0) {
+  while(val!==0) {
     remainder = val%2
     val = parseInt(val/2);
     binary += remainder*i
     i *= 10;
   }
-
   return binary
 }
 
 const findResponse = (val, arr) => {
   let binVal = convertToBinary(val)
-
   console.log(binVal)
-
   for (let i=0; i<arr.length; i++) {
     if(binVal === arr[i].bin){ //calling the fxn to convert to binary
       displayResults.innerHTML += `${k > 0? ', ':''}${arr[i].response}`
     }
   }
-
-  // else if ((inputNumber.value > 2) && (inputNumber.value < 4))
 }
 
 const checkRange = (valu, arre) => {
-  let va2 = 0
-  if ((valu <= 4)||(valu == 8)) {
+  if ((valu <= 4)||(valu === 8)) {
     findResponse(valu, arre)
   }
   else if((valu > 4)&&(valu < 8)) {
-    if(revert == false){
+    if(revert === false){
       findResponse(valu-4, arre)
       k++
       findResponse(4, arre)
     }
-    else{
+    else {
       findResponse(4, arre)
       k++
       findResponse(valu-4, arre)
@@ -65,18 +60,19 @@ const checkRange = (valu, arre) => {
   }
   else if((valu > 8)&&(valu < 16)) {
     if(valu < 13) {
-      if(revert == false){
+      if (revert === false) {
         findResponse(valu-8, arre)
         k++
         findResponse(8, arre)
       }
-      else{
+      else {
         findResponse(8, arre)
         k++
         findResponse(valu-8, arre)
       }
-    }else {
-      if(revert==false){
+    }
+    else {
+      if(revert === false) {
         findResponse(valu-12, arre)
         k++
         findResponse((valu-(valu-12))-8, arre)
@@ -92,7 +88,6 @@ const checkRange = (valu, arre) => {
       }
     }
   }
-
   k = 0
 }
 
@@ -103,7 +98,7 @@ shakeHandBtn.addEventListener('click', ()=> {
     checkRange(inputNumber.value, arrayOfCode)
   }
   else if (inputNumber.value >= 16) {
-    if(inputNumber.value ==16) {
+    if(inputNumber.value === 16) {
       displayResults.innerHTML += `! secret Code reversed and ${Math.ceil(inputNumber.value/16)*16}`
     } else {
       revert = true
@@ -111,12 +106,5 @@ shakeHandBtn.addEventListener('click', ()=> {
       console.log(revert)
     }
   }
-  else if ((Math.ceil(inputNumber.value / 16)*16)&&(Math.ceil(inputNumber.value / 16)*16)) {
-    // checkRange(inputNumber.value, arrayOfCod1e)
-    console.log(arrayOfCode)
-  }
-  /* if ((parseInt(inputNumber.value % 2) == 1 && (inputNumber.value != 1))) {
-    displayResults.innerHTML = `${arrayOfCode[parseInt(inputNumber.value % 2)-1].response} ${arrayOfCode[1].response}`
-  } */
   revert = false
 })
