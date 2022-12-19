@@ -109,7 +109,7 @@ shakeHandBtn.addEventListener('click', () => {
       checkRange(inputNumber.value, arrayOfCode)
     } else {
       if (inputNumber.value % 16 === 0) {
-        displayResults.innerHTML += '! secret Code reversed'
+        displayResults.innerHTML = '! secret Code reversed'
       }
       let results = Math.floor(inputNumber.value / 16)
       if (results % 2 == 0) {
