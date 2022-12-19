@@ -102,7 +102,7 @@ shakeHandBtn.addEventListener('click', () => {
   // }
   // revert = false
   if (inputNumber.value === '') {
-    alert('madafaka input a number')
+    alert('Input a number')
   } else {
     displayResults.innerHTML = ''
     if (inputNumber.value < 16) {
