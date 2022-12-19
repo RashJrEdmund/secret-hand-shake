@@ -11,11 +11,11 @@ const arrayOfCode = [
 ]
 
 const reversedArray = [
-  { bin: 1000, response: 'jump', deci: 8 },
-  { bin: 100, response: 'close your eyes', deci: 4 },
+  { bin: 1000, response: 'jump', deci: 1 },
+  { bin: 100, response: 'close your eyes', deci: 2 },
   { bin: 11, response: 'double blink, wink', deci: 3 },
-  { bin: 10, response: 'double blink', deci: 2 },
-  { bin: 1, response: 'wink', deci: 1 }
+  { bin: 10, response: 'double blink', deci: 4 },
+  { bin: 1, response: 'wink', deci: 8 }
 ]
 
 let k = 0 // k counts the number of times findResponse is called and chooses to add a comma and space
@@ -88,17 +88,37 @@ const checkRange = (valu, arre) => {
 }
 
 shakeHandBtn.addEventListener('click', () => {
-  displayResults.innerHTML = ''
-  if (inputNumber.value < 16) {
-    checkRange(inputNumber.value, arrayOfCode)
-  } else if (inputNumber.value >= 16) {
-    if (inputNumber.value === 16) {
-      displayResults.innerHTML += '! secret Code reversed'
+  // displayResults.innerHTML = ''
+  // if (inputNumber.value < 16) {
+  //   checkRange(inputNumber.value, arrayOfCode)
+  // } else if (inputNumber.value >= 16) {
+  //   if (inputNumber.value === 16) {
+  //     displayResults.innerHTML += '! secret Code reversed'
+  //     alert('! secret Code reversed')
+  //   } else {
+  //     revert = true
+  //     checkRange((inputNumber.value - 16), reversedArray)
+  //   }
+  // }
+  // revert = false
+  if (inputNumber.value === '') {
+    alert('madafaka input a number')
+  } else {
+    displayResults.innerHTML = ''
+    if (inputNumber.value < 16) {
+      checkRange(inputNumber.value, arrayOfCode)
     } else {
-      revert = true
-      checkRange((inputNumber.value - 16), reversedArray)
-      console.log(revert)
+      if (inputNumber.value % 16 === 0) {
+        displayResults.innerHTML += '! secret Code reversed'
+      }
+      let results = Math.floor(inputNumber.value / 16)
+      if (results % 2 == 0) {
+        checkRange((inputNumber.value - (Math.floor(inputNumber.value / 16) * 16)), arrayOfCode)
+      } else {
+        revert = true
+        checkRange((inputNumber.value - (Math.floor(inputNumber.value / 16) * 16)), reversedArray)
+      }
     }
+    revert = false
   }
-  revert = false
 })
