@@ -88,19 +88,6 @@ const checkRange = (valu, arre) => {
 }
 
 shakeHandBtn.addEventListener('click', () => {
-  // displayResults.innerHTML = ''
-  // if (inputNumber.value < 16) {
-  //   checkRange(inputNumber.value, arrayOfCode)
-  // } else if (inputNumber.value >= 16) {
-  //   if (inputNumber.value === 16) {
-  //     displayResults.innerHTML += '! secret Code reversed'
-  //     alert('! secret Code reversed')
-  //   } else {
-  //     revert = true
-  //     checkRange((inputNumber.value - 16), reversedArray)
-  //   }
-  // }
-  // revert = false
   if (inputNumber.value === '') {
     alert('Input a number')
   } else {
@@ -111,8 +98,8 @@ shakeHandBtn.addEventListener('click', () => {
       if (inputNumber.value % 16 === 0) {
         displayResults.innerHTML = '! secret Code reversed'
       }
-      let results = Math.floor(inputNumber.value / 16)
-      if (results % 2 == 0) {
+      const results = Math.floor(inputNumber.value / 16)
+      if (results % 2 === 0) {
         checkRange((inputNumber.value - (Math.floor(inputNumber.value / 16) * 16)), arrayOfCode)
       } else {
         revert = true
